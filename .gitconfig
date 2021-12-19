@@ -1,0 +1,21 @@
+[user]
+	name = Amarjeet Kumar
+	email = masteramarjeet@users.noreply.github.com
+[user]
+	name = Amarjeet Kumar
+	email = masteramarjeet@users.noreply.github.com
+[alias]
+	s = status
+	c = commit -m
+	b = branch
+	ca = commit -am
+	chk = checkout
+	lb = branch -a
+	la = log --graph --decorate --oneline --all
+	ln = log --graph --decorate --name-status --oneline -n
+[diff]
+	tool = vimdiff
+[init]
+	defaultBranch = main
+[core]
+	editor = nano
