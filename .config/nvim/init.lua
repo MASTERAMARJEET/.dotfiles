@@ -1,7 +1,7 @@
 require "options"
 require "keymaps"
 require "installs"
-require "user.colorscheme"
+require "colorscheme"
 require "user.cmp"
 require "user.lsp"
 require "user.telescope"
