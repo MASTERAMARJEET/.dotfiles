@@ -1,5 +1,5 @@
-vim.g.material_terminal_italics = 1
-vim.g.material_theme_style = "ocean-community"
+require("plugins.material")
+vim.g.material_style = "deep ocean"
 vim.cmd [[
 try
   colorscheme material
@@ -8,4 +8,3 @@ catch /^Vim\%((\a\+)\)\=:E185/
   set background=dark
 endtry
 ]]
-vim.cmd[[highlight ColorColumn ctermbg=red guibg=7]]
