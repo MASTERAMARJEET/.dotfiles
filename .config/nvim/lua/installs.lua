@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use({ "ahmedkhalf/project.nvim" })
 
   -- MISCS
+  use({ "folke/which-key.nvim" })
 
   -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
