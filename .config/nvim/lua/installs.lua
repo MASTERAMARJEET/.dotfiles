@@ -40,6 +40,12 @@ packer.init({
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 
+  ---------------
+  -- BETTER UI --
+  ---------------
+  use({ "kyazdani42/nvim-web-devicons" })
+  use({ "kyazdani42/nvim-tree.lua" })
+
   -- Colorschemes
   use({
     "MASTERAMARJEET/material.nvim", --[[ forked from 'marko-cerovac/material.nvim' ]]

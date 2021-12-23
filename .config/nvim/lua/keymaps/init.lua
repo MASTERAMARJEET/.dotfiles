@@ -59,4 +59,5 @@ local misc = {
   { mode.normal, "<leader>e", "<cmd>NvimTreeToggle<cr>" },
 }
 helpers.load_keymaps(global)
+helpers.load_keymaps(misc)
 
