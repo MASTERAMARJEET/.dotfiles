@@ -22,3 +22,4 @@ require("plugins.project")
 require("plugins.alpha")
 
 require("plugins.whichkey")
+require("autocommands")
