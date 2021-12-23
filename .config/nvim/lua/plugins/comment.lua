@@ -69,14 +69,14 @@ comment.setup({
     local U = require("Comment.utils")
 
     local location = nil
-    local status_ok, ts_comment_utils = pcall(require, "ts_context_commentstring.utils")
-    if not status_ok then
+    local ts_status_ok, ts_comment_utils = pcall(require, "ts_context_commentstring.utils")
+    if not ts_status_ok then
       return
     end
     if ctx.ctype == U.ctype.block then
-      location = ts_comment.get_cursor_location()
+      location = ts_comment_utils.get_cursor_location()
     elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-      location = ts_comment.get_visual_start_location()
+      location = ts_comment_utils.get_visual_start_location()
     end
 
     return require("ts_context_commentstring.internal").calculate_commentstring({
