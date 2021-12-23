@@ -40,8 +40,11 @@ packer.init({
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 
-  -- BETTER UI
+  -- USER BY OTHER PLUGINS
   use({ "kyazdani42/nvim-web-devicons" })
+  use({ "nvim-lua/popup.nvim" })
+  use({ "nvim-lua/plenary.nvim" })
+  -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
   use({ "nvim-lualine/lualine.nvim" })
   use({
@@ -51,7 +54,7 @@ return packer.startup(function(use)
 
   -- COLORSCHEMES
   use({
-    "MASTERAMARJEET/material.nvim", --[[ forked from 'marko-cerovac/material.nvim' ]]
+    "MASTERAMARJEET/material.nvim", -- forked from 'marko-cerovac/material.nvim'
     branch = "amar",
   })
 
