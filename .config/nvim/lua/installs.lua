@@ -40,7 +40,7 @@ packer.init({
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 
-  -- USER BY OTHER PLUGINS
+  -- USED BY OTHER PLUGINS
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
@@ -74,6 +74,9 @@ return packer.startup(function(use)
   -- TELESCOPE
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
+  -- MISCS
+	use({ "akinsho/toggleterm.nvim" })
 
   -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
