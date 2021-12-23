@@ -54,6 +54,12 @@ return packer.startup(function(use)
   use({ "hrsh7th/cmp-nvim-lsp" })
   use({ "hrsh7th/cmp-nvim-lua" })
 
+  -- LSP
+  use({ "neovim/nvim-lspconfig" })
+  use({ "williamboman/nvim-lsp-installer" })
+  use({ "tamago324/nlsp-settings.nvim" })
+  use({ "jose-elias-alvarez/null-ls.nvim" })
+
   -- SNIPPETS
   use({ "L3MON4D3/LuaSnip" }) --snippet engine
   use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use

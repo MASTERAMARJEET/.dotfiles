@@ -8,5 +8,7 @@ require("plugins.bufferline")
 
 require("plugins.cmp")
 
+require("lsp")
+
 require("plugins.comment") -- require these after treesitter plugins
 require("plugins.autopairs") -- require these after nvim-cmp
