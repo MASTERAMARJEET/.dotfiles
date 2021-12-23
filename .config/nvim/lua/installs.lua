@@ -76,7 +76,6 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- MISCS
-  use({ "akinsho/toggleterm.nvim" })
 
   -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
@@ -85,6 +84,8 @@ return packer.startup(function(use)
     "akinsho/bufferline.nvim",
     requires = { "moll/vim-bbye" }
   })
+  use({ "akinsho/toggleterm.nvim" })
+
 
   -- COLORSCHEMES
   use({
