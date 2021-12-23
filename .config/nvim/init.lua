@@ -18,4 +18,5 @@ require("plugins.treesitter")
 require("plugins.comment") -- require these after treesitter plugins
 
 require("plugins.telescope")
+require("plugins.project")
 

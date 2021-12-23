@@ -74,6 +74,7 @@ return packer.startup(function(use)
   -- TELESCOPE
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "ahmedkhalf/project.nvim" })
 
   -- MISCS
 
