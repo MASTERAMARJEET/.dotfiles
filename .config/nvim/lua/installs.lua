@@ -50,6 +50,7 @@ return packer.startup(function(use)
     "akinsho/bufferline.nvim",
     requires = { "moll/vim-bbye" }
   })
+	use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- Colorschemes
   use({
