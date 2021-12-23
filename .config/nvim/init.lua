@@ -9,3 +9,4 @@ require("plugins.bufferline")
 require("plugins.cmp")
 -- require these after nvim-cmp
 require("plugins.comment")
+require("plugins.autopairs")
