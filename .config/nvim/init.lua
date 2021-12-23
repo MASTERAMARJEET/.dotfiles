@@ -6,6 +6,7 @@ require("plugins.nvim-tree")
 require("plugins.lualine")
 require("plugins.bufferline")
 require("plugins.toggleterm")
+require("plugins.gitsigns")
 
 require("plugins.cmp")
 

@@ -76,7 +76,7 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- MISCS
-	use({ "akinsho/toggleterm.nvim" })
+  use({ "akinsho/toggleterm.nvim" })
 
   -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
@@ -95,6 +95,9 @@ return packer.startup(function(use)
   -- CODE EASY
   use({ "numToStr/Comment.nvim" })
   use({ "windwp/nvim-autopairs" })
+
+  -- Git
+  use({ "lewis6991/gitsigns.nvim" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
