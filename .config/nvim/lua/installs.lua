@@ -71,6 +71,10 @@ return packer.startup(function(use)
   })
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
+  -- TELESCOPE
+  use({ "nvim-telescope/telescope.nvim" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
   -- BETTER UI
   use({ "kyazdani42/nvim-tree.lua" })
   use({ "nvim-lualine/lualine.nvim" })
