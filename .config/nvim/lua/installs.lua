@@ -40,6 +40,12 @@ packer.init({
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 
+  -- Colorschemes
+  use({
+    "MASTERAMARJEET/material.nvim", --[[ forked from 'marko-cerovac/material.nvim' ]]
+    branch = "amar",
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
