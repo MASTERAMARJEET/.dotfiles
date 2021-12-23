@@ -86,6 +86,7 @@ return packer.startup(function(use)
     requires = { "moll/vim-bbye" }
   })
   use({ "akinsho/toggleterm.nvim" })
+  use({ "goolord/alpha-nvim" })
 
 
   -- COLORSCHEMES
