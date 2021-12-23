@@ -56,4 +56,3 @@ local global = {
 }
 
 helpers.load_keymaps(global)
-

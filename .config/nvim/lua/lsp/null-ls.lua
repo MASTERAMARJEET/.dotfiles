@@ -11,10 +11,17 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
-    formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+    formatting.prettier.with({
+      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+    }),
     formatting.black.with({ extra_args = { "--fast" } }),
-    formatting.stylua.with({ extra_args = { "--indent-type=Spaces", "--indent-width=2", "--column-width=80"} }),
+    formatting.stylua.with({
+      extra_args = {
+        "--indent-type=Spaces",
+        "--indent-width=2",
+        "--column-width=80",
+      },
+    }),
     -- diagnostics.flake8
   },
 })
-

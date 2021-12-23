@@ -66,5 +66,5 @@ local mappings = {
 
     ["?"] = actions.which_key,
   },
-  }
+}
 return mappings

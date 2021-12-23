@@ -37,4 +37,3 @@ local list = {
 }
 
 return list
-

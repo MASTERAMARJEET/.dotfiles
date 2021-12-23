@@ -40,4 +40,3 @@ function M.load_keymaps(keymaps)
 end
 
 return M
-

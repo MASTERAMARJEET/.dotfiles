@@ -12,7 +12,7 @@ telescope.setup({
     selection_caret = " ",
     path_display = { "smart" },
 
-    mappings = telescope_mappings
+    mappings = telescope_mappings,
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:

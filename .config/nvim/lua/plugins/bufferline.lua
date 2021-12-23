@@ -95,7 +95,7 @@ bufferline.setup({
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
-   close_button_visible = {
+    close_button_visible = {
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
@@ -165,4 +165,3 @@ bufferline.setup({
     },
   },
 })
- 

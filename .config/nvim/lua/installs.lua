@@ -33,7 +33,11 @@ local util = require("packer.util")
 
 -- Have packer use a popup window
 packer.init({
-  compile_path = util.join_paths(vim.fn.stdpath('config'), 'lua', 'packer_compiled.lua'),
+  compile_path = util.join_paths(
+    vim.fn.stdpath("config"),
+    "lua",
+    "packer_compiled.lua"
+  ),
   display = {
     open_fn = function()
       return util.float({ border = "rounded" })
@@ -89,11 +93,10 @@ return packer.startup(function(use)
   use({ "nvim-lualine/lualine.nvim" })
   use({
     "akinsho/bufferline.nvim",
-    requires = { "moll/vim-bbye" }
+    requires = { "moll/vim-bbye" },
   })
   use({ "akinsho/toggleterm.nvim" })
   use({ "goolord/alpha-nvim" })
-
 
   -- COLORSCHEMES
   use({

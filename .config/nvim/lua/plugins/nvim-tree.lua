@@ -140,4 +140,3 @@ nvim_tree.setup({
     require_confirm = true,
   },
 })
-
