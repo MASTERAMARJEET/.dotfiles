@@ -1,5 +1,8 @@
 require("options")
 require("keymaps")
+
+require("plugins.impatient") -- this needs to be loaded before any other plugins
+
 require("installs")
 require("colorscheme")
 

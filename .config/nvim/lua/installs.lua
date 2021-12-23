@@ -29,11 +29,14 @@ if not status_ok then
   return
 end
 
+local util = require("packer.util")
+
 -- Have packer use a popup window
 packer.init({
+  compile_path = util.join_paths(vim.fn.stdpath('config'), 'lua', 'packer_compiled.lua'),
   display = {
     open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
+      return util.float({ border = "rounded" })
     end,
   },
 })
@@ -77,6 +80,7 @@ return packer.startup(function(use)
   use({ "ahmedkhalf/project.nvim" })
 
   -- MISCS
+  use({ "lewis6991/impatient.nvim" })
   use({ "antoinemadec/FixCursorHold.nvim" }) -- This is needed to fix lsp doc highlight
   use({ "folke/which-key.nvim" })
 
