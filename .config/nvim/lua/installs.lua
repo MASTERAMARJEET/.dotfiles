@@ -40,9 +40,7 @@ packer.init({
 return packer.startup(function(use)
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 
-  ---------------
-  -- BETTER UI --
-  ---------------
+  -- BETTER UI
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "kyazdani42/nvim-tree.lua" })
   use({ "nvim-lualine/lualine.nvim" })
@@ -51,11 +49,14 @@ return packer.startup(function(use)
     requires = { "moll/vim-bbye" }
   })
 
-  -- Colorschemes
+  -- COLORSCHEMES
   use({
     "MASTERAMARJEET/material.nvim", --[[ forked from 'marko-cerovac/material.nvim' ]]
     branch = "amar",
   })
+
+  -- CODE EASY
+  use({ "numToStr/Comment.nvim" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
