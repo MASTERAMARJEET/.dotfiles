@@ -4,12 +4,8 @@ function _TELESCOPE(picker, theme, args)
   if not theme then
     -- no theme => default (horizontal)
     local horizontal_config = { layout_config = { preview_width = 0.6 } }
-    args = vim.tbl_deep_extend(
-      "force",
-      args,
-      horizontal_config
-    )
-  elseif theme=="dropdown" then
+    args = vim.tbl_deep_extend("force", args, horizontal_config)
+  elseif theme == "dropdown" then
     local size = 0.8
     local min_width, min_height = 80, 15
     local dropdown_config = {
@@ -31,11 +27,11 @@ function _TELESCOPE(picker, theme, args)
       args,
       tele_theme.get_dropdown(dropdown_config)
     )
-  elseif theme=="ivy" then
+  elseif theme == "ivy" then
     args = vim.tbl_deep_extend(
       "force",
       args,
-      tele_theme.get_ivy({results_title = ""})
+      tele_theme.get_ivy({ results_title = "" })
     )
   end
   require("telescope.builtin")[picker](args)
