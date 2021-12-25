@@ -1,19 +1,13 @@
 return {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
+  ["b"] = { "<cmd>lua _TELESCOPE('buffer')<cr>", "Buffers" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files()<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["f"] = { "<cmd>lua _TELESCOPE('find_files', 'dropdown')<cr>", "Find files" },
+  ["F"] = { "<cmd>lua _TELESCOPE('live_grep', 'ivy')<cr>", "Find Text" },
 
   P = {
     name = "Packer",
@@ -38,23 +32,16 @@ return {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
     },
-    s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    s = { "<cmd>lua _TELESCOPE('git_status')<cr>", "Open changed file" },
+    b = { "<cmd>lua _TELESCOPE('git_branches')<cr>", "Checkout branch" },
     d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
   },
 
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
+    d = { "<cmd>lua _TELESCOPE('diagnostics',nil, {bufnr = 0})<cr>", "Document Diagnostics" },
+    w = { "<cmd>lua _TELESCOPE('diagnostics')<cr>", "Workspace Diagnostics" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -63,22 +50,21 @@ return {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    s = { "<cmd>lua _TELESCOPE('lsp_document_symbols')<cr>", "Document Symbols" },
     S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      "<cmd>lua _TELESCOPE('lsp_dynamic_workspace_symbols')<cr>",
       "Workspace Symbols",
     },
   },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    c = { "<cmd>lua _TELESCOPE('colorscheme')<cr>", "Colorscheme" },
+    h = { "<cmd>lua _TELESCOPE('help_tags')<cr>", "Find Help" },
+    M = { "<cmd>lua _TELESCOPE('man_pages')<cr>", "Man Pages" },
+    r = { "<cmd>lua _TELESCOPE('oldfiles')<cr>", "Open Recent File" },
+    R = { "<cmd>lua _TELESCOPE('registers')<cr>", "Registers" },
+    k = { "<cmd>lua _TELESCOPE('keymaps')<cr>", "Keymaps" },
+    C = { "<cmd>lua _TELESCOPE('commands')<cr>", "Commands" },
   },
 
   t = {
