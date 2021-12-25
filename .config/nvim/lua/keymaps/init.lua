@@ -17,7 +17,9 @@ local global = {
 
   -- Better copy paste
   { mode.normal, "<leader>y", '"+y' },
+  { mode.visual, "<leader>y", '"+y' },
   { mode.normal, "<leader>p", '"+p' },
+  { mode.visual, "<leader>p", '"+p' },
   { mode.visual, "p", '"_dP' },
   { mode.normal, "<A-Up>", "YP" },
   { mode.normal, "<A-Down>", "Yp" },
