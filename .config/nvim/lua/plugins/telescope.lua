@@ -8,8 +8,8 @@ local telescope_mappings = require("keymaps.telescope")
 telescope.setup({
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = "  ",
+    selection_caret = " ",
     path_display = { "smart" },
 
     mappings = telescope_mappings,
@@ -22,7 +22,9 @@ telescope.setup({
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
-    find_files = { hidden = true },
+    find_files = {
+      find_command = { "fd", "--hidden", "--type", "f", "--strip-cwd-prefix" }
+    },
   },
   extensions = {
     -- Your extension configuration goes here:
