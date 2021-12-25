@@ -3,7 +3,8 @@ if not status_ok then
   return
 end
 
-require("plugins.telescope.utils")
+-- ! DONOT remove this require
+local utils = require("plugins.telescope.utils")
 
 local telescope_mappings = require("keymaps.telescope")
 
@@ -25,7 +26,10 @@ telescope.setup({
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     find_files = {
-      find_command = { "fd", "--hidden", "--type", "f", "--strip-cwd-prefix" }
+      find_command = { "fd", "--hidden", "--type", "f", "--strip-cwd-prefix" },
+    },
+    buffers = {
+      entry_maker = utils.buffer_entry_maker(),
     },
   },
   extensions = {

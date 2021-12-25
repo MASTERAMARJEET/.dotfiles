@@ -1,12 +1,15 @@
 return {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = { "<cmd>lua _TELESCOPE('buffer')<cr>", "Buffers" },
+  ["b"] = { "<cmd>lua _TELESCOPE('buffers', 'dropdown')<cr>", "Buffers" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = { "<cmd>lua _TELESCOPE('find_files', 'dropdown')<cr>", "Find files" },
+  ["f"] = {
+    "<cmd>lua _TELESCOPE('find_files', 'dropdown')<cr>",
+    "Find files",
+  },
   ["F"] = { "<cmd>lua _TELESCOPE('live_grep', 'ivy')<cr>", "Find Text" },
 
   P = {
@@ -40,7 +43,10 @@ return {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = { "<cmd>lua _TELESCOPE('diagnostics',nil, {bufnr = 0})<cr>", "Document Diagnostics" },
+    d = {
+      "<cmd>lua _TELESCOPE('diagnostics',nil, {bufnr = 0})<cr>",
+      "Document Diagnostics",
+    },
     w = { "<cmd>lua _TELESCOPE('diagnostics')<cr>", "Workspace Diagnostics" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
@@ -50,7 +56,10 @@ return {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>lua _TELESCOPE('lsp_document_symbols')<cr>", "Document Symbols" },
+    s = {
+      "<cmd>lua _TELESCOPE('lsp_document_symbols')<cr>",
+      "Document Symbols",
+    },
     S = {
       "<cmd>lua _TELESCOPE('lsp_dynamic_workspace_symbols')<cr>",
       "Workspace Symbols",
