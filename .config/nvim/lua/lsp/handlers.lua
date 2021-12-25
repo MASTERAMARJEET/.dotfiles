@@ -1,12 +1,13 @@
 local M = {}
 
+local diag_signs = require("utils").diagnostics_signs
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
-    { name = "DiagnosticSignError", text = " " },
-    { name = "DiagnosticSignWarn", text = " " },
-    { name = "DiagnosticSignHint", text = " " },
-    { name = "DiagnosticSignInfo", text = " " },
+    { name = "DiagnosticSignError", text = diag_signs.error },
+    { name = "DiagnosticSignWarn", text = diag_signs.warn },
+    { name = "DiagnosticSignHint", text = diag_signs.hint },
+    { name = "DiagnosticSignInfo", text = diag_signs.info },
   }
 
   for _, sign in ipairs(signs) do

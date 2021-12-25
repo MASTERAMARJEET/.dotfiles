@@ -74,6 +74,7 @@ if not config_status_ok then
 end
 
 local keymaps = require("keymaps.nvim-tree")
+local signs = require("utils").diagnostics_signs
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
@@ -96,10 +97,10 @@ nvim_tree.setup({
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = signs.hint,
+      info = signs.info,
+      warning = signs.warn,
+      error = signs.error,
     },
   },
   update_focused_file = {
