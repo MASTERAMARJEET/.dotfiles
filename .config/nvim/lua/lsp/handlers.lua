@@ -24,8 +24,12 @@ M.setup = function()
     signs = {
       active = signs,
     },
-    update_in_insert = true,
-    underline = true,
+    update_in_insert = false,
+    underline = {
+      severity = {
+        min = vim.diagnostic.severity.WARN,
+      },
+    },
     severity_sort = true,
     float = {
       focusable = false,
@@ -134,13 +138,6 @@ local function lsp_keymaps(bufnr)
     "n",
     "]d",
     '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
-    opts
-  )
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "<leader>q",
-    "<cmd>lua vim.diagnostic.setloclist()<CR>",
     opts
   )
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
