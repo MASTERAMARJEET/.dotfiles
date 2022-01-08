@@ -7,6 +7,12 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
+  augroup _lsp
+    " AutoFormat
+    autocmd!
+    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+  augroup end
+
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
@@ -30,8 +36,3 @@ vim.cmd([[
   augroup end
 ]])
 
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
