@@ -11,11 +11,14 @@
 	ca = commit -am
 	chk = checkout
 	lb = branch -a
-	la = log --graph --decorate --oneline --all
+	graph1 = log --graph --decorate --oneline --all
+	graph2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	graph3 = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) %C(bold red)%d%C(reset) %C(bold cyan)%ad%C(reset) %C(bold green)- %an%C(reset)%n''         %C(white)%s%C(reset) %C(reset)' --all
+	la = !"git graph3"
 	ln = log --graph --decorate --name-status --oneline -n
 [diff]
 	tool = vimdiff
 [init]
 	defaultBranch = main
 [core]
-	editor = nano
+	editor = vi
