@@ -236,7 +236,7 @@ unset __conda_setup
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-if [-d "$HOME/.cargo/env" ]; then
+if [ -d "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
 
