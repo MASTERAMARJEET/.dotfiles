@@ -236,7 +236,9 @@ unset __conda_setup
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-. "$HOME/.cargo/env"
+if [-d "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 # pipenv setup
 eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
