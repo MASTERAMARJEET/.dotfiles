@@ -4,6 +4,7 @@
   window_state = fullscreen
   title_transmit_bg_color = "#ad7fa8"
   inactive_color_offset = 0.9
+  title_use_system_font = False
   title_font = Fira Code Medium 10
 [keybindings]
   new_tab = None
@@ -33,17 +34,15 @@
     palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_theme_colors = True
   [[base16]]
-    background_color = "#020005"
     background_darkness = 0.97
     background_type = transparent
     cursor_color = "#ad7fa8"
     cursor_color_fg = False
     font = Ubuntu Mono 13
-    foreground_color = "#eeeeec"
+    foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 5000
-    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
 [layouts]
   [[default]]
     [[[child0]]]
