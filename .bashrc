@@ -42,11 +42,6 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# when using kitty, set the $TERMINFO correctly
-if [[ "$TERM" == "xterm-kitty" ]]; then
-  export TERMINFO="/usr/share/terminfo/"
-fi
-
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -242,8 +237,3 @@ fi
 
 # pipenv setup
 eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
