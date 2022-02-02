@@ -58,6 +58,8 @@ cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 
+cmd code %code "$f" &
+
 ## Bindings
 # File Openers
 map e $$EDITOR "$f"
@@ -71,6 +73,7 @@ map au unarchive
 
 # Basic Functions
 map x delete
+map o code
 map <enter> open
 map Mf mkfile
 map Md mkdir
