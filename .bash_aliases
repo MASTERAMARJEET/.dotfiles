@@ -6,6 +6,7 @@ alias nh='cd ~/.config/nvim && vi init.lua'
 alias kt='vi ~/.config/kitty/kitty.conf'
 alias bs='vi ~/.bashrc'
 alias brc='cd ~/Documents/academics/BioPhyisics/BRMLcode'
+alias mcmd="matlab -nosplash -nodesktop -nojvm"
 alias brm='cd ~/Documents/academics/BioPhyisics/BRMLcode/BRMLtoolkit && matlab'
 alias tm='vi ~/.tmux.conf'
 alias to='~/Codes/utils/simtrum.sh'
