@@ -18,8 +18,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=50
+HISTFILESIZE=1000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -107,15 +107,6 @@ unset color_prompt force_color_prompt
 # overwriting the PS1 to instead use powerline format
 # source ~/powerline.sh
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -172,12 +163,6 @@ alias fltr="flutter"
 alias frun="flutter run --enable-software-rendering"
 alias fapk="flutter build apk --split-per-abi"
 
-# adding conda to PATH
-# export PATH="/home/amar/miniconda3/bin:$PATH"  # commented out by conda initialize
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ## lf config
 # lf icon definitions.
