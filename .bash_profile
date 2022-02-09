@@ -1,19 +1,11 @@
 # include .bashrc if it exists
-if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
-fi
+[ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-if [ -d  "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
-fi
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+[ -f  "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
