@@ -98,7 +98,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[1;38;5;111m\]\W\[\033[0;38;5;120m\] $(git_branch)\[\033[00m\]\n\$ '
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[1;38;5;13m\]\u@\h: \W\[\033[0;38;5;50m\] $(git_branch)\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;38;5;111m\]\W\[\033[0;38;5;120m\] $(git_branch)\[\033[00m\]\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\W\ $(git_branch)\n\$ '
     # PS1='${debian_chroot:+($debian_chroot)}\W $(git_branch)\$ '
     # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W $(git_branch)\$ '
 fi
@@ -140,7 +140,7 @@ export PROMPT_COMMAND="auto_pipenv;$PROMPT_COMMAND"
 
 ## Adding stuff to PATH
 export PATH=/usr/bin/latex:$PATH
-export PATH=/home/amar/.local/bin:$PATH
+
 # setting up ANDROID paths
 export ANDROID_HOME=$HOME/Android
 export PATH=$ANDROID_HOME/tools:$PATH
@@ -165,19 +165,13 @@ alias fapk="flutter build apk --split-per-abi"
 
 
 ## lf config
-# lf icon definitions.
-if [ -f ~/.config/lf/lfcd ]; then
-    . ~/.config/lf/lfcd
-fi
-if [ -f ~/.config/lf/icons ]; then
-    . ~/.config/lf/icons
-fi
+[ -f ~/.config/lf/lfcd ] && . ~/.config/lf/lfcd
+[ -f ~/.config/lf/icons ] && . ~/.config/lf/icons
+
 alias f="lfcd"
 
 # File shortcut definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -216,9 +210,6 @@ unset __conda_setup
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-if [ -d "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
-fi
 
 # pipenv setup
 eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
