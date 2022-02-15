@@ -3,7 +3,6 @@
 alias repo='cd ~/Codes/'
 alias mw='cd ~/Codes/my_repo/my_site && vi index.html'
 alias nh='cd ~/.config/nvim && vi init.lua'
-alias kt='vi ~/.config/kitty/kitty.conf'
 alias bs='vi ~/.bashrc'
 alias brc='cd ~/Documents/academics/BioPhyisics/BRMLcode'
 alias mcmd="matlab -nosplash -nodesktop -nojvm"
