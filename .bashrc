@@ -105,7 +105,7 @@ fi
 unset color_prompt force_color_prompt
 
 # overwriting the PS1 to instead use powerline format
-# source ~/powerline.sh
+# source ~/.bash_powerline
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
