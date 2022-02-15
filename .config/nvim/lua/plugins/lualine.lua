@@ -41,12 +41,6 @@ local branch = {
   icons_enabled = true,
   icon = "",
 }
-
-local location = {
-  "location",
-  padding = 1,
-}
-
 -- cool function for progress
 -- currently not in use
 local progress = function()
@@ -63,10 +57,16 @@ local progress = function()
     "▇▇",
     "██",
   }
-  local line_ratio = current_line / total_lines
+  local line_ratio = math.floor(current_line / total_lines * 100)
   local index = math.ceil(line_ratio * #chars)
-  return chars[index]
+  return "" .. current_line .. "/" .. total_lines .. ":" .. line_ratio .. "%%"
 end
+
+local location = {
+  "location",
+  fmt = progress,
+  padding = 1,
+}
 
 local spaces = function()
   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
