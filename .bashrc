@@ -136,7 +136,8 @@ alias envoff='conda deactivate'
 alias p='pipenv'
 
 # fix tmux icon rendering
-alias tmux="tmux -u"
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
 
 # export PROMPT_COMMAND="conda_auto_env;$PROMPT_COMMAND"
 export PROMPT_COMMAND="auto_pipenv;$PROMPT_COMMAND"
