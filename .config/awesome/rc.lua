@@ -126,6 +126,12 @@ awful.keyboard.append_global_keybindings({
     awful.key({}, "#123", function()
         awful.spawn.with_shell("bash ~/scripts/audio_control plus")
     end, { description = "increase volume", group = "system" }),
+    awful.key({}, "#232", function()
+        awful.spawn.with_shell("bash ~/scripts/brightness_control minus")
+    end, { description = "decrease volume", group = "system" }),
+    awful.key({}, "#233", function()
+        awful.spawn.with_shell("bash ~/scripts/brightness_control plus")
+    end, { description = "increase volume", group = "system" }),
     awful.key(
         { modkey },
         "s",
