@@ -9,36 +9,64 @@ local naughty = require("naughty")
 local inspect = require("inspect")
 
 -- Function to call on screen startup
-local function at_screen_connect(s)
-    -- If wallpaper is a function, call it with the screen
-    local wallpaper = beautiful.wallpaper
-    if type(wallpaper) == "function" then
-        wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.maximized(wallpaper, s, true)
+local function screen_decoration(s)
+    local colors = {
+        -- Background
+        bg = "#282828",
+        bg0 = "#282828",
+        bg0_s = "#32302f",
+        bg0_h = "#1d2021",
+        bg1 = "#3c3836",
+        bg2 = "#504945",
+        bg3 = "#665c54",
+        bg4 = "#7c6f64",
 
-    -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
+        -- Foreground
+        fg = "#ebdbb2",
+        fg0 = "#fbf1c7",
+        fg1 = "#ebdbb2",
+        fg2 = "#d5c4a1",
+        fg3 = "#bdae93",
+        fg4 = "#a89984",
+
+        -- Grayer
+        gray = "#928374",
+        gray1 = "#a89984",
+        gray2 = "#928374",
+
+        -- Normal Colors
+        red = "#cc241d",
+        green = "#98971a",
+        yellow = "#d79921",
+        blue = "#458588",
+        purple = "#b16286",
+        aqua = "#689d6a",
+        orange = "#d65d0e",
+
+        -- Light colors
+        light_red = "#fb4934",
+        light_green = "#b8bb26",
+        light_yellow = "#fabd2f",
+        light_blue = "#83a598",
+        light_purple = "#d3869b",
+        light_aqua = "#8ec07c",
+        light_orange = "#fe8019",
+    }
+
+    beautiful.colors = colors
+    -- -- If wallpaper is a function, call it with the screen
+    -- local wallpaper = beautiful.wallpaper
+    -- if type(wallpaper) == "function" then
+    --     wallpaper = wallpaper(s)
+    -- end
+    -- gears.wallpaper.maximized(wallpaper, s, true)
+    --
+    -- -- Tags
+    awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
 
     -- Sidebar
     local sidebar = widgets.sidebar.sidebar:new({
         screen = s,
-    })
-
-    -- Promptbox
-    local promptbox_w = awful.widget.prompt({
-        screen = s,
-        bg = "#00000000",
-        bg_cursor = beautiful.colors.fg1,
-    })
-
-    -- Keyboard layout
-    local keyboard_layout_w = widgets.base:new({
-        icon = { markup = "  ", bg = beautiful.colors.light_blue },
-        inner_widget = awful.widget.keyboardlayout({}),
-        bg_normal = "#00000000",
-        bg_active = beautiful.colors.light_blue,
-        margins = {},
     })
 
     -- Date widget
@@ -57,8 +85,8 @@ local function at_screen_connect(s)
         bg_active = beautiful.colors.light_orange,
     })
 
-    -- Systray widget
-    local systray_w = wibox.widget.systray()
+    -- -- Systray widget
+    -- local systray_w = wibox.widget.systray()
 
     -- Hostname widget
     local hostname_w = widgets.base:new({
@@ -115,7 +143,7 @@ local function at_screen_connect(s)
     local brightness_slider = widgets.brightness_slider:new({
         parent = brightness_w.widget,
     })
-    s.brightness_popup = widgets.brightness_popup:new({})
+    s.brightness_popup = widgets.brightness_popup:new()
 
     -- Audio widget
     local audio_w = widgets.audio:new({
@@ -350,87 +378,87 @@ local function at_screen_connect(s)
             end,
         },
     })
-    local tasklist_w = awful.widget.tasklist({
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = awful.util.tasklist_buttons,
-        layout = {
-            spacing = 10,
-            layout = wibox.layout.flex.horizontal,
-        },
-        widget_template = {
-            {
-                {
-                    {
-                        {
-                            id = "icon_role",
-                            widget = wibox.widget.imagebox,
-                        },
-                        margins = 2,
-                        widget = wibox.container.margin,
-                    },
-                    {
-                        id = "text_role",
-                        widget = wibox.widget.textbox,
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                left = 10,
-                right = 10,
-                widget = wibox.container.margin,
-            },
-            id = "background_role",
-            bg = beautiful.tasklist_bg_focus,
-            widget = wibox.container.background,
-
-            --@diagnostic disable-next-line: unused-local
-            create_callback = function(self, task, index, objects)
-                self:connect_signal("mouse::enter", function()
-                    if client.focus == task then
-                        self.bg = beautiful.tasklist_bg_hover
-                    elseif task.minimized then
-                        self.bg = beautiful.tasklist_bg_hover
-                    else
-                        self.bg = beautiful.tasklist_bg_hover
-                    end
-                end)
-                self:connect_signal("mouse::leave", function()
-                    if client.focus == task then
-                        self.bg = beautiful.tasklist_bg_focus
-                    elseif task.minimized then
-                        self.bg = beautiful.tasklist_bg_minimize
-                    else
-                        self.bg = beautiful.tasklist_bg_normal
-                    end
-                end)
-            end,
-            --@diagnostic disable-next-line: unused-local
-            update_callback = function(self, task, index, objects)
-                local text_widget = self:get_children_by_id("text_role")[1]
-                if task.minimized then
-                    text_widget.visible = false
-                else
-                    text_widget.visible = true
-                end
-            end,
-        },
-    })
-
+    -- local tasklist_w = awful.widget.tasklist({
+    --     screen = s,
+    --     filter = awful.widget.tasklist.filter.currenttags,
+    --     buttons = awful.util.tasklist_buttons,
+    --     layout = {
+    --         spacing = 10,
+    --         layout = wibox.layout.flex.horizontal,
+    --     },
+    --     widget_template = {
+    --         {
+    --             {
+    --                 {
+    --                     {
+    --                         id = "icon_role",
+    --                         widget = wibox.widget.imagebox,
+    --                     },
+    --                     margins = 2,
+    --                     widget = wibox.container.margin,
+    --                 },
+    --                 {
+    --                     id = "text_role",
+    --                     widget = wibox.widget.textbox,
+    --                 },
+    --                 layout = wibox.layout.fixed.horizontal,
+    --             },
+    --             left = 10,
+    --             right = 10,
+    --             widget = wibox.container.margin,
+    --         },
+    --         id = "background_role",
+    --         bg = beautiful.tasklist_bg_focus,
+    --         widget = wibox.container.background,
+    --
+    --         --@diagnostic disable-next-line: unused-local
+    --         create_callback = function(self, task, index, objects)
+    --             self:connect_signal("mouse::enter", function()
+    --                 if client.focus == task then
+    --                     self.bg = beautiful.tasklist_bg_hover
+    --                 elseif task.minimized then
+    --                     self.bg = beautiful.tasklist_bg_hover
+    --                 else
+    --                     self.bg = beautiful.tasklist_bg_hover
+    --                 end
+    --             end)
+    --             self:connect_signal("mouse::leave", function()
+    --                 if client.focus == task then
+    --                     self.bg = beautiful.tasklist_bg_focus
+    --                 elseif task.minimized then
+    --                     self.bg = beautiful.tasklist_bg_minimize
+    --                 else
+    --                     self.bg = beautiful.tasklist_bg_normal
+    --                 end
+    --             end)
+    --         end,
+    --         --@diagnostic disable-next-line: unused-local
+    --         update_callback = function(self, task, index, objects)
+    --             local text_widget = self:get_children_by_id("text_role")[1]
+    --             if task.minimized then
+    --                 text_widget.visible = false
+    --             else
+    --                 text_widget.visible = true
+    --             end
+    --         end,
+    --     },
+    -- })
+    --
     local wibox_bar = awful.wibar({
         screen = s,
         position = "top",
         type = "desktop",
-        height = beautiful.wibar_height,
+        height = 24,
         ontop = true,
         bg = beautiful.wibar_bg,
     })
 
     wibox_bar:setup({
         widget = wibox.container.margin,
-        left = dpi(8),
-        right = dpi(8),
-        top = dpi(6),
-        bottom = dpi(6),
+        left = dpi(4),
+        right = dpi(4),
+        top = dpi(4),
+        bottom = dpi(4),
         {
             layout = wibox.layout.align.horizontal,
             expand = "outside",
@@ -438,7 +466,6 @@ local function at_screen_connect(s)
                 {
                     hostname_w.widget,
                     layoutbox_w,
-                    promptbox_w,
 
                     spacing = dpi(5),
                     layout = wibox.layout.fixed.horizontal,
@@ -461,8 +488,7 @@ local function at_screen_connect(s)
                     nil,
                     nil,
                     {
-                        systray_w,
-                        keyboard_layout_w,
+                        -- systray_w,
                         audio_w.widget,
                         brightness_w.widget,
                         battery_w.widget,
@@ -488,18 +514,16 @@ local function at_screen_connect(s)
 
     client.connect_signal("property::fullscreen", change_wibox_visibility)
     client.connect_signal("focus", change_wibox_visibility)
-
-    s.promptbox = promptbox_w
     s.wibox = wibox_bar
 
-    s.dock = widgets.dock({
-        screen = s,
-    })
-    s.sidebar = sidebar
+    -- s.dock = widgets.dock({
+    --     screen = s,
+    -- })
+    -- s.sidebar = sidebar
 end
 
 return {
-    at_screen_connect = at_screen_connect,
+    screen_decoration = screen_decoration,
 }
 
 -- vim: shiftwidth=4: tabstop=4

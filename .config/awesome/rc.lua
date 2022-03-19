@@ -11,6 +11,8 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
+
+local utils = require("utils")
 -- Notification library
 local naughty = require("naughty")
 -- Declarative object management
@@ -41,6 +43,8 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "st"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+
+awful.util.hostname = utils.file.read_first_line("/etc/hostname") or "AwesomeWM"
 
 -- Default modkey.
 modkey = "Mod4"
@@ -96,104 +100,9 @@ end)
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+local screen_config = require("screen-config")
 screen.connect_signal("request::desktop_decoration", function(s)
-    -- Each screen has its own tag table.
-    awful.tag(
-        { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-        s,
-        awful.layout.layouts[1]
-    )
-
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox({
-        screen = s,
-        buttons = {
-            awful.button({}, 1, function()
-                awful.layout.inc(1)
-            end),
-            awful.button({}, 3, function()
-                awful.layout.inc(-1)
-            end),
-            awful.button({}, 4, function()
-                awful.layout.inc(-1)
-            end),
-            awful.button({}, 5, function()
-                awful.layout.inc(1)
-            end),
-        },
-    })
-
-    -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist({
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
-        buttons = {
-            awful.button({}, 1, function(t)
-                t:view_only()
-            end),
-            awful.button({ modkey }, 1, function(t)
-                if client.focus then
-                    client.focus:move_to_tag(t)
-                end
-            end),
-            awful.button({}, 3, awful.tag.viewtoggle),
-            awful.button({ modkey }, 3, function(t)
-                if client.focus then
-                    client.focus:toggle_tag(t)
-                end
-            end),
-            awful.button({}, 4, function(t)
-                awful.tag.viewprev(t.screen)
-            end),
-            awful.button({}, 5, function(t)
-                awful.tag.viewnext(t.screen)
-            end),
-        },
-    })
-
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist({
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = {
-            awful.button({}, 1, function(c)
-                c:activate({
-                    context = "tasklist",
-                    action = "toggle_minimization",
-                })
-            end),
-            awful.button({}, 3, function()
-                awful.menu.client_list({ theme = { width = 250 } })
-            end),
-            awful.button({}, 4, function()
-                awful.client.focus.byidx(-1)
-            end),
-            awful.button({}, 5, function()
-                awful.client.focus.byidx(1)
-            end),
-        },
-    })
-
-    -- Create the wibox
-    s.mywibox = awful.wibar({
-        position = "top",
-        screen = s,
-        widget = {
-            layout = wibox.layout.align.horizontal,
-            { -- Left widgets
-                layout = wibox.layout.fixed.horizontal,
-                s.mytaglist,
-            },
-            s.mytasklist, -- Middle widget
-            { -- Right widgets
-                layout = wibox.layout.fixed.horizontal,
-                wibox.widget.systray(),
-                mytextclock,
-                s.mylayoutbox,
-            },
-        },
-    })
+    screen_config.screen_decoration(s)
 end)
 -- }}}
 
@@ -473,11 +382,11 @@ client.connect_signal("request::default_keybindings", function()
         awful.key({ modkey }, "t", function(c)
             c.ontop = not c.ontop
         end, { description = "toggle keep on top", group = "client" }),
-        awful.key({ modkey }, "n", function(c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
-        end, { description = "minimize", group = "client" }),
+        -- awful.key({ modkey }, "n", function(c)
+        --     -- The client currently has the input focus, so it cannot be
+        --     -- minimized, since minimized clients can't have the focus.
+        --     c.minimized = true
+        -- end, { description = "minimize", group = "client" }),
         awful.key({ modkey }, "m", function(c)
             c.maximized = not c.maximized
             c:raise()
