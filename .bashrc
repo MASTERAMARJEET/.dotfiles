@@ -135,34 +135,12 @@ alias envon='conda activate'
 alias envoff='conda deactivate'
 alias p='pipenv'
 
-# fix tmux icon rendering
-export LC_ALL=en_IN.UTF-8
-export LANG=en_IN.UTF-8
-
 # export PROMPT_COMMAND="conda_auto_env;$PROMPT_COMMAND"
-export PROMPT_COMMAND="auto_pipenv;$PROMPT_COMMAND"
 
-## Adding stuff to PATH
-export PATH=/usr/bin/latex:$PATH
-
-# setting up ANDROID paths
-export ANDROID_HOME=$HOME/Android
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-# ANDROID SDK
-export ANDROID_SDK_ROOT=$ANDROID_HOME
-export PATH=$ANDROID_SDK_ROOT:$PATH
 # fixing sdkmanager error by adding alias
 alias sdkman="sdkmanager"
 alias avdman="avdmanager"
 
-# adding gradle to PATH
-export PATH=/opt/gradle/gradle-6.8.3/bin:$PATH
-
-# adding flutter to PATH
-export FLUTTER=$HOME/Codes/not_my_repo/flutter
-export PATH=$FLUTTER/bin:$PATH
 alias fltr="flutter"
 alias frun="flutter run --enable-software-rendering"
 alias fapk="flutter build apk --split-per-abi"
@@ -211,9 +189,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pipenv setup
 eval "$(_PIPENV_COMPLETE=bash_source pipenv)"

@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+export VISUAL=vi
+export EDITOR="$VISUAL"
+export TERMINAL=st
+
+# fix tmux icon rendering
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# ANDROID stuff
+export ANDROID_HOME=$HOME/Android
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+PATH=$ANDROID_SDK_ROOT:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+
+# flutter stuff
+export FLUTTER=$HOME/Codes/not_my_repo/flutter
+PATH=$FLUTTER/bin:/opt/gradle/gradle-6.8.3/bin:$PATH
+
+PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+
+export PATH
