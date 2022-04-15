@@ -1,7 +1,10 @@
 return {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = { "<cmd>lua _TELESCOPE('buffers', 'dropdown')<cr>", "Buffers" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["e"] = {
+    "<cmd>lua require('nvim-tree').toggle(false, true)<cr>",
+    "Explorer",
+  },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },

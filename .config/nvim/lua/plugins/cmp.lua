@@ -125,12 +125,14 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    native = true,
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
   },
   experimental = {
     ghost_text = true,
-    native_menu = false,
   },
 })
 cmp.setup.cmdline(":", {
@@ -141,7 +143,7 @@ cmp.setup.cmdline(":", {
   }),
 })
 require("cmp").setup.cmdline("/", {
-  sources = {
+  sources = cmp.config.sources({
     { name = "buffer" },
-  },
+  }),
 })

@@ -1,5 +1,4 @@
 local vim_globals = {
-  indent_markers = 0,
   git_hl = 1,
   highlight_opened_files = 1,
   root_folder_modifier = ":t",
@@ -74,7 +73,6 @@ nvim_tree.setup({
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = true,
   update_cwd = true,
@@ -89,6 +87,16 @@ nvim_tree.setup({
       info = signs.info,
       warning = signs.warn,
       error = signs.error,
+    },
+  },
+  renderer = {
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
     },
   },
   update_focused_file = {
