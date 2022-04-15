@@ -17,7 +17,9 @@ require("plugins.autopairs") -- require these after nvim-cmp
 
 require("lsp")
 
-require("plugins.treesitter")
+if vim.api.nvim_eval('exists("g:vscode")') == 0 then
+  require("plugins.treesitter")
+end
 require("plugins.comment") -- require these after treesitter plugins
 
 require("plugins.telescope")
