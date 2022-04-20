@@ -2,3 +2,5 @@
 
 .tmux/plugins
 .tmux/resurrect
+
+.config/qtile/__pycache__
