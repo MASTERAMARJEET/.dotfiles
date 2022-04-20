@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+
+case "$1" in
+  "plus") pactl -- set-sink-volume 0 +5%
+  ;;
+  "minus") pactl -- set-sink-volume 0 -5%
+  ;;
+  "toggle")
+    data_file=~/.local/share/amar_audio/data
+    state=$(cat $data_file|awk '{ print $1}')
+    case "$state" in
+      "muted")
+        volume=$(cat $data_file|awk '{ print $2}')
+        pactl -- set-sink-volume 0 "$volume"
+        echo "unmuted" > $data_file
+      ;;
+      "unmuted")
+        volume=$(pactl -- get-sink-volume 0|grep -Po '[0-9]+%'|head -n 1)
+        pactl -- set-sink-volume 0 0
+        echo "muted $volume" > $data_file
+      ;;
+      *) echo "data cache invalid"
+      ;;
+    esac
+  ;;
+  *) echo "invalid argument"
+esac
+
+

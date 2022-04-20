@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+current_brightness=`brightnessctl | grep -P -o '[0-9]+(?=%)'`
+case "$1" in
+  "plus") brightnessctl s 2+%
+  ;;
+  "minus")
+    if [[ $current_brightness -gt 2 ]]
+    then
+      brightnessctl s 2-%
+    fi
+  ;;
+  *) echo "invalid argument"
+esac
+
+
