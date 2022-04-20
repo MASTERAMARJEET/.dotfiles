@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+# this is a script to generate warnings for low battery/ over charging
+
+battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+adapter_state=`acpi -a | grep -oE '[^ ]+$'`
+
+
+if [[ ($battery_level -le 25) && ($adapter_state == "off-line") ]]
+then
+    /usr/bin/zenity --warning --text="<b>Battery Low</b>\nOnly ${battery_level} remaining!!\nConnect the power cable." --display=:0.0 --no-wrap
+elif [[ ($battery_level -ge 90) && ($adapter_state == "on-line") ]]
+then
+    /usr/bin/zenity --warning --text="<b>Over-charging</b>\nAlready ${battery_level}!!\nDisconnect the power cable." --display=:0.0 --no-wrap  
+fi
+
+exit 0

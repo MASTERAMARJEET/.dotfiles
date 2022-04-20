@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+close_polybar() {
+  killall -p polybar
+}
+open_polybar(){
+  close_polybar
+  echo "---" | tee -a /tmp/polybar-nebula.log
+  polybar nebula 2>&1 | tee -a /tmp/polybar1.log & disown
+}
+case "$1" in
+  "close") close_polybar
+  ;;
+  "open") open_polybar
+  ;;
+  "hide") polybar-msg cmd hide
+  ;;
+  "show") polybar-msg cmd show
+  ;;
+  *)
+    open_polybar
+  ;;
+esac
+

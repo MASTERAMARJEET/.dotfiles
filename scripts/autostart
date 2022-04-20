@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+~/.fehbg &
+~/scripts/polybar_controller open &
+pgrep -x brave &>/dev/null || brave &
+pgrep -x st &>/dev/null || st -e tmux &
+
+sleep 5
+systemctl --user start redshift &
