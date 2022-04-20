@@ -22,3 +22,6 @@ PATH=$FLUTTER/bin:/opt/gradle/gradle-6.8.3/bin:$PATH
 PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
 export PATH
+
+# fix matplotlib
+export LD_PRELOAD=/usr/lib/libstdc++.so.6
