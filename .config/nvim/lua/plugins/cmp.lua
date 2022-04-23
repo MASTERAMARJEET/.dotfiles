@@ -54,61 +54,29 @@ cmp.setup({
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(-2), { "i", "c" }),
-    ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(2), { "i", "c" }),
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-2), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(2), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expandable() then
-    --     luasnip.expand()
-    --   elseif luasnip.expand_or_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   elseif check_backspace() then
-    --     fallback()
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
+    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
   },
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
-      -- Kind icons
-      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.kind = string.format(
         "%s %s",
         kind_icons[vim_item.kind],
         vim_item.kind
-      ) -- This concatonates the icons with the name of the item kind
+      )
       vim_item.menu = ({
         luasnip = "[snip]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[vim]",
-        buffer = "[buff]",
+        buffer = "[buf]",
         path = "[path]",
       })[entry.source.name]
       return vim_item
@@ -126,7 +94,6 @@ cmp.setup({
     select = false,
   },
   window = {
-    native = true,
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     },
@@ -136,13 +103,15 @@ cmp.setup({
   },
 })
 cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = "path" },
   }, {
     { name = "cmdline" },
   }),
 })
-require("cmp").setup.cmdline("/", {
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = "buffer" },
   }),
