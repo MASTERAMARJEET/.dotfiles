@@ -4,3 +4,4 @@
 .tmux/resurrect
 
 .config/qtile/__pycache__
+.config/nvim/spell/en.utf-8.add.spl
