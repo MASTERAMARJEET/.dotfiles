@@ -14,16 +14,16 @@ vim.cmd([[
     autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
   augroup end
 
-  augroup _git
+  augroup _latex
     autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
+    " build pdf on save
+    autocmd BufWritePost *.tex silent !pdflatex --interaction=batchmode report.tex 2>&1> /dev/null
   augroup end
 
-  augroup _markdown
+  augroup _wrap_spell
     autocmd!
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
+    autocmd Filetype gitcommit,markdown setlocal wrap
+    autocmd FileType gitcommit,markdown,tex setlocal spell
   augroup end
 
   augroup _auto_resize
