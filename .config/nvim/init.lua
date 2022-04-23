@@ -19,6 +19,7 @@ require("lsp")
 
 if vim.api.nvim_eval('exists("g:vscode")') == 0 then
   require("plugins.treesitter")
+  require("plugins.luasnip")
 end
 require("plugins.comment") -- require these after treesitter plugins
 
