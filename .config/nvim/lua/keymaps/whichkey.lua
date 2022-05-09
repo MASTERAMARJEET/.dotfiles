@@ -2,7 +2,7 @@ return {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = { "<cmd>lua _TELESCOPE('buffers', 'dropdown')<cr>", "Buffers" },
   ["e"] = {
-    "<cmd>lua require('nvim-tree').toggle(false, true)<cr>",
+    "<cmd>lua require('nvim-tree').toggle(false, false)<cr>",
     "Explorer",
   },
   ["w"] = { "<cmd>w!<CR>", "Save" },
