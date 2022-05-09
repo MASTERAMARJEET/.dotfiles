@@ -5,7 +5,7 @@ local vim_globals = {
   add_trailing = 0,
   group_empty = 1,
   icon_padding = " ",
-  symlink_arrow = " >> ",
+  symlink_arrow = " -> ",
   respect_buf_cwd = 1,
   create_in_closed_folder = 0,
   refresh_wait = 500,
@@ -76,10 +76,6 @@ nvim_tree.setup({
   open_on_tab = false,
   hijack_cursor = true,
   update_cwd = true,
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
-  },
   diagnostics = {
     enable = true,
     icons = {
@@ -124,7 +120,6 @@ nvim_tree.setup({
     height = 30,
     hide_root_folder = false,
     side = "right",
-    auto_resize = true,
     mappings = {
       custom_only = true,
       list = keymaps,

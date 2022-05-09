@@ -11,6 +11,9 @@ local telescope_mappings = require("keymaps.telescope")
 telescope.setup({
   defaults = {
 
+    layout_config = {
+      width = 0.9,
+    },
     prompt_prefix = "  ",
     selection_caret = " ",
     path_display = { "smart" },

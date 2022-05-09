@@ -12,7 +12,9 @@ null_ls.setup({
   debug = false,
   sources = {
     formatting.prettier,
-    formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.black.with({
+      args = { "--quiet", "--fast", "-" },
+    }),
     formatting.stylua.with({
       extra_args = {
         "--indent-type=Spaces",
