@@ -10,13 +10,20 @@ export TERMINAL=st
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export CHROME_EXECUTABLE=google-chrome-stable
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
+PATH=$JAVA_HOME/bin:$PATH
+
 # ANDROID stuff
-export ANDROID_HOME=$HOME/Android
-export ANDROID_SDK_ROOT=$ANDROID_HOME
-PATH=$ANDROID_SDK_ROOT:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+export ANDROID_SDK_ROOT=/opt/android-sdk
+PATH=$ANDROID_SDK_ROOT/platform-tools/:$PATH
+PATH=$ANDROID_SDK_ROOT/tools/bin/:$PATH
+PATH=$ANDROID_ROOT/emulator:$PATH
+PATH=$ANDROID_SDK_ROOT/tools/:$PATH
 
 # flutter stuff
-export FLUTTER=$HOME/Codes/not_my_repo/flutter
+export FLUTTER=$HOME/software/flutter
 PATH=$FLUTTER/bin:/opt/gradle/gradle-6.8.3/bin:$PATH
 
 PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
@@ -25,3 +32,5 @@ export PATH
 
 # fix matplotlib
 export LD_PRELOAD=/usr/lib/libstdc++.so.6
+#
+# export LESS=-c
