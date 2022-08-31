@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 close_polybar() {
-  killall -p polybar
+  killall -p polybar 2>/dev/null
 }
 open_polybar(){
   close_polybar
-  echo "---" | tee -a /tmp/polybar-nebula.log
-  polybar nebula 2>&1 | tee -a /tmp/polybar1.log & disown
+  echo ---$(date)--- | tee -a /tmp/polybar-nebula.log
+  polybar nebula 2>&1 | tee -a /tmp/polybar-nebula.log
 }
 case "$1" in
   "close") close_polybar
@@ -15,6 +15,8 @@ case "$1" in
   "hide") polybar-msg cmd hide
   ;;
   "show") polybar-msg cmd show
+  ;;
+  "toggle") polybar-msg cmd toggle
   ;;
   *)
     open_polybar
