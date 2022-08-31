@@ -1,14 +1,13 @@
 [user]
 	name = Amarjeet Kumar
 	email = masteramarjeet@users.noreply.github.com
-[user]
-	name = Amarjeet Kumar
-	email = masteramarjeet@users.noreply.github.com
+
+[includeif "gitdir:~/Codes/Hunar.ai/"]
+  path = ~/Codes/Hunar.ai/.gitconfig
 [alias]
 	s = status
 	c = commit -m
 	b = branch
-	ca = commit -am
 	chk = checkout
 	lb = branch -a
 	graph1 = log --graph --decorate --oneline --all
@@ -22,3 +21,11 @@
 	defaultBranch = main
 [core]
 	editor = vi
+[pull]
+	rebase = false
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
