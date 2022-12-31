@@ -126,26 +126,26 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias cls='clear'
 alias py='python3'
 alias lt='ls -rt'
-alias up='sudo apt update && sudo apt upgrade'
 alias lg='lazygit'
-alias lzd='lazydocker'
+alias lz='lazydocker'
 alias envon='conda activate'
 alias envoff='conda deactivate'
-alias p='pipenv'
+# alias p='pipenv'
+alias nosleep='xset s off -dpms'
+alias vim='nvim -u NONE'
 
 # export PROMPT_COMMAND="conda_auto_env;$PROMPT_COMMAND"
 # export PROMPT_COMMAND="auto_pipenv;$PROMPT_COMMAND"
 
 # fixing sdkmanager error by adding alias
-alias sdkman="sdkmanager"
-alias avdman="avdmanager"
-
-alias fltr="flutter"
-alias frun="flutter run --enable-software-rendering"
-alias fapk="flutter build apk --split-per-abi"
+# alias sdkman="sdkmanager"
+# alias avdman="avdmanager"
+#
+# alias fltr="flutter"
+# alias frun="flutter run --enable-software-rendering"
+# alias fapk="flutter build apk --split-per-abi"
 
 
 ## lf config
@@ -170,13 +170,6 @@ fi
 
 xhost local:amar > /dev/null
 
-# >>> nvm setup >>>
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# <<< nvm setup >>>
-
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/amar/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -195,10 +188,3 @@ unset __conda_setup
 # pipenv setup
 # eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/amar/software/google-cloud-sdk/path.bash.inc' ]; then . '/home/amar/software/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/amar/software/google-cloud-sdk/completion.bash.inc' ]; then . '/home/amar/software/google-cloud-sdk/completion.bash.inc'; fi

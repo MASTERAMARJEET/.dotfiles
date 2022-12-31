@@ -24,13 +24,26 @@ PATH=$ANDROID_SDK_ROOT/tools/:$PATH
 
 # flutter stuff
 export FLUTTER=$HOME/software/flutter
+export FLUTTER_GIT_URL='git@github.com-personal:flutter/flutter.git'
 PATH=$FLUTTER/bin:/opt/gradle/gradle-6.8.3/bin:$PATH
 
 PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
-export PATH
+# add go bin to path
+PATH=$HOME/go/bin/:$PATH
 
 # fix matplotlib
 export LD_PRELOAD=/usr/lib/libstdc++.so.6
-#
+
 # export LESS=-c
+
+export NVM_DIR="$HOME/.nvm"
+
+# pnpm
+export PNPM_HOME="/home/amar/.local/share/pnpm"
+PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+
+# This should be the last line
+export PATH
