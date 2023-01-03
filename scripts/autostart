@@ -4,6 +4,8 @@
 ~/scripts/polybar_controller open &
 pgrep -x brave &>/dev/null || brave &
 pgrep -x st &>/dev/null || st -e tmux &
+flameshot &
+slack &
 
 sleep 5
-systemctl --user start redshift &
+systemctl --user restart redshift &
