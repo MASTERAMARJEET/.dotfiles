@@ -5,7 +5,7 @@ local naughty = require("naughty")
 -- Function to call on screen startup
 local function screen_decoration(s)
   -- -- Tags
-  awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
+  awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
 
   local wibox_bar = awful.wibar({
     screen = s,
