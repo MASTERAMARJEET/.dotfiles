@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+
+while true;
+do clear && $1;
+inotifywait -qre close_write .;
+done
