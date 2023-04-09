@@ -1,0 +1,52 @@
+#!/usr/bin/bash
+
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+export VISUAL=vi
+export EDITOR="$VISUAL"
+export TERMINAL=st
+
+# fix tmux icon rendering
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export CHROME_EXECUTABLE=google-chrome-stable
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/
+PATH=$JAVA_HOME/bin:$PATH
+
+# ANDROID stuff
+export ANDROID_SDK_ROOT=/opt/android-sdk
+PATH=$ANDROID_SDK_ROOT/platform-tools/:$PATH
+PATH=$ANDROID_SDK_ROOT/tools/bin/:$PATH
+PATH=$ANDROID_ROOT/emulator:$PATH
+PATH=$ANDROID_SDK_ROOT/tools/:$PATH
+
+# flutter stuff
+export FLUTTER=$HOME/software/flutter
+export FLUTTER_GIT_URL='git@github.com-personal:flutter/flutter.git'
+PATH=$FLUTTER/bin:/opt/gradle/gradle-6.8.3/bin:$PATH
+
+PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
+
+# add go bin to path
+PATH=$HOME/go/bin/:$PATH
+
+# fix matplotlib
+export LD_PRELOAD=/usr/lib/libstdc++.so.6
+
+# export LESS=-c
+
+export NVM_DIR="$HOME/.nvm"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+# This should be the last line
+export PATH
