@@ -1,6 +1,11 @@
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 git_branch() {
 	git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/{\1}/'
 }
@@ -8,6 +13,18 @@ git_branch() {
 setopt PROMPT_SUBST
 PS1='%{%B%F{111}%}%c %b%F{120}$(git_branch)
 %f$ %'
+
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -22,7 +39,7 @@ alias envoff='conda deactivate'
 # alias p='pipenv'
 alias nosleep='xset s off -dpms'
 alias sleep='systemctl suspend'
-alias vim='nvim -u NONE'
+alias vim='nvim --clean'
 
 ## lf config
 [ -f ~/.config/lf/lfcd ] && . ~/.config/lf/lfcd
