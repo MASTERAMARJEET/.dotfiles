@@ -11,7 +11,7 @@ git_branch() {
 }
 
 setopt PROMPT_SUBST
-PS1='%{%B%F{111}%}%c %b%F{120}$(git_branch)
+PS1='%n@%m %{%B%F{111}%}%c %b%F{120}$(git_branch)
 %f$ %'
 
 
