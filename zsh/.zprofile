@@ -14,3 +14,5 @@
 if [[ "$(tty)" = "/dev/tty1" && "$OSTYPE" == "linux-gnu" ]]; then
 	startx
 fi
+
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
