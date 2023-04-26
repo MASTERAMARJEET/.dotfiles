@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for window in $(yabai -m query --windows | jq -cre ".[].id"); do
+	yabai -m window $window --toggle zoom-fullscreen
+done
