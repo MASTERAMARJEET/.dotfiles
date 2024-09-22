@@ -10,7 +10,7 @@
 	b = branch
 	chk = checkout
 	lb = branch -a
-	graph1 = log --graph --decorate --oneline --all
+	graph1 = log --graph --decorate --oneline --all --date-order
 	graph2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	graph3 = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) %C(white)%s%C(reset) %C(reset)%n''       %C(bold red)%d%C(reset) %C(bold green)%an%C(reset) %C(bold cyan)- %ad%C(reset)' --all
 	la = !"git graph3"
