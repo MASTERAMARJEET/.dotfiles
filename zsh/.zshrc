@@ -68,6 +68,17 @@ alias f="lfcd"
 eval "$(pyenv init -)"
 
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/Codes/Hunar.ai/google-cloud-sdk/path.zsh.inc' ]; then . '~/Codes/Hunar.ai/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '~/Codes/Hunar.ai/google-cloud-sdk/completion.zsh.inc' ]; then . '~/Codes/Hunar.ai/google-cloud-sdk/completion.zsh.inc'; fi
+
 # node version manager (fnm)
 eval "$(fnm env)" >/dev/null
 
+# sst
+export PATH=/Users/amar/.sst/bin:$PATH
+
+# bun completions
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
