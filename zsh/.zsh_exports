@@ -37,7 +37,10 @@ export LD_PRELOAD=/usr/lib/libstdc++.so.6
 
 # export LESS=-c
 
-export NVM_DIR="$HOME/.nvm"
+# node version manager
+if [[ "$OSTYPE" != "linux-gnu" ]]; then
+  export PATH="/Users/amar/Library/Application Support/fnm:$PATH"
+fi
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

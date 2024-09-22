@@ -37,13 +37,10 @@ export LD_PRELOAD=/usr/lib/libstdc++.so.6
 
 # export LESS=-c
 
-export NVM_DIR="$HOME/.nvm"
-
 # pnpm
 export PNPM_HOME="/home/amar/.local/share/pnpm"
 PATH="$PNPM_HOME:$PATH"
 # pnpm end
-
 
 # This should be the last line
 export PATH

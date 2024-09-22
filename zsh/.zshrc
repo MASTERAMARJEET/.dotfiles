@@ -67,3 +67,7 @@ alias f="lfcd"
 
 eval "$(pyenv init -)"
 
+
+# node version manager (fnm)
+eval "$(fnm env)" >/dev/null
+
