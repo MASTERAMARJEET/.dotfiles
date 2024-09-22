@@ -1,6 +1,5 @@
 ## Basic Settings
 set preview true
-set nohidden true
 set incsearch true
 set incfilter true
 set drawbox true
@@ -12,7 +11,7 @@ set mouse true
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|application/json|inode/x-empty) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
+        *) [[ "$OSTYPE" == "linux-gnu" ]] && xdg-open "$f" || open "$f" ;;
     esac
 }}
 
@@ -53,7 +52,7 @@ cmd unarchive ${{
   esac
 }}
 
-cmd code %code "$f" &
+cmd code %code "$f"
 
 ## Bindings
 # File Openers
@@ -67,5 +66,5 @@ map au unarchive
 map x delete
 map o code
 map <enter> open
-map Mf mkfile
-map Md mkdir
+map Cf mkfile
+map Cd mkdir

@@ -1,11 +1,21 @@
 #!/usr/bin/bash
 
 export LF_ICONS="\
-tw= :\
-st= :\
-ow= :\
-dt= :\
-di= :\
+ln= :\
+or= :\
+tw=t :\
+ow= :\
+st=t :\
+di= :\
+pi=p :\
+so=s :\
+bd=b :\
+cd=c :\
+su=u :\
+sg=g :\
+ex= :\
+fi= :\
+dt= :\
 fi= :\
 ln= :\
 or= :\
