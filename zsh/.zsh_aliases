@@ -4,6 +4,6 @@ alias nh='cd ~/.config/nvim && vi init.lua'
 alias bs='vi ~/.bashrc'
 alias mcmd="matlab -nosplash -nodesktop"
 alias tm='vi ~/.tmux.conf'
-alias t='tmux new -As0'
+alias t='tmux new -A'
 alias vba='source ./venv/bin/activate'
 alias c='code .'
