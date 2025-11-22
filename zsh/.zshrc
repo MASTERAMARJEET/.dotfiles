@@ -15,32 +15,6 @@ PS1='%b%F{11}%n@%m %{%B%F{111}%}%c %b%F{120}$(git_branch)
 %f$ %'
 
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
-	alias dir='dir --color=auto'
-
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias py='python3'
-alias lt='ls -rt'
-alias lg='lazygit'
-alias lz='lazydocker'
-alias envon='conda activate'
-alias envoff='conda deactivate'
-# alias p='pipenv'
-alias nosleep='xset s off -dpms'
-alias sleep='systemctl suspend'
-alias vim='nvim --clean'
-
 ## lf config
 [ -f ~/.config/lf/lfcd ] && . ~/.config/lf/lfcd
 [ -f ~/.config/lf/icons ] && . ~/.config/lf/icons
@@ -68,17 +42,22 @@ alias f="lfcd"
 eval "$(pyenv init -)"
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/Codes/Hunar.ai/google-cloud-sdk/path.zsh.inc' ]; then . '~/Codes/Hunar.ai/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '~/Codes/Hunar.ai/google-cloud-sdk/completion.zsh.inc' ]; then . '~/Codes/Hunar.ai/google-cloud-sdk/completion.zsh.inc'; fi
-
 # node version manager (fnm)
 eval "$(fnm env)" >/dev/null
 
-# sst
-export PATH=/Users/amar/.sst/bin:$PATH
 
 # bun completions
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/amar/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/amar/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/amar/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/amar/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/amar/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+

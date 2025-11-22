@@ -1,9 +1,35 @@
 #This file contains shortcuts for easy navigation. Should not be run directly.
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias py='python3'
+alias lt='ls -rt'
+alias lg='lazygit'
+alias lz='lazydocker'
+alias envon='conda activate'
+alias envoff='conda deactivate'
+# alias p='pipenv'
+alias nosleep='xset s off -dpms'
+alias sleep='systemctl suspend'
+alias vim='nvim --clean'
+
 alias nh='cd ~/.config/nvim && vi init.lua'
 alias bs='vi ~/.bashrc'
 alias mcmd="matlab -nosplash -nodesktop"
 alias tm='vi ~/.tmux.conf'
 alias t='tmux new -A'
-alias vba='source ./venv/bin/activate'
-alias c='code .'
+alias vba='source ./.venv/bin/activate'
+alias c='cursor .'
