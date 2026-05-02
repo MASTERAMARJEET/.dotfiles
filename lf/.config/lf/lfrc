@@ -52,7 +52,7 @@ cmd unarchive ${{
   esac
 }}
 
-cmd code %code "$f"
+cmd editor %cursor "$f"
 
 ## Bindings
 # File Openers
@@ -64,7 +64,7 @@ map au unarchive
 
 # Basic Functions
 map x delete
-map o code
+map o editor
 map <enter> open
 map Cf mkfile
 map Cd mkdir
