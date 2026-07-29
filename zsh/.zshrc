@@ -1,3 +1,5 @@
+[ -f ~/.dotfiles/zsh/.zsh_workspace_env.zsh ] && . ~/.dotfiles/zsh/.zsh_workspace_env.zsh
+
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
